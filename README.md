@@ -3,7 +3,7 @@
 This Docker image handle a fully featured Debian 10 with an uptodate SCAP tooling (including OpenSCAP probes, SCAP-Security-guides for various targets and Scap-Workbench graphical tool.
 The goal is to learn easily how to manipulate SCAP tool using this image as a security service for remote test machines such as virtual machines or physical hosts, for educational purpose
 
-## Running Docker image
+## Running Docker image
 
 In order to execute scap-workbench, the docker image must be executed on a host with a graphical server installed and running. The local X server will be used in order as backend for the scap-workbench GUI.
 You are free to handle the Docker container network depending on your needs, On of the way, in an educational example, is to share the host network namespace to easily intercact with other hosts.
@@ -17,7 +17,7 @@ In order to get back reports results and other content to the host, it is possib
 >  docker run --volume="$HOME/.Xauthority:/home/oscap/.Xauthority:rw" --volume="$PWD/results:/home/oscap/results:rw" --env="DISPLAY" --net=host -it h2lab/scap_training
 
 
-## Training
+## Training
 
 A typical training is based on the usage of various virtual machines supported by the SCAP guides:
 - CentOS 6, 7, 8
@@ -56,7 +56,7 @@ If the report doesn't terminate properly, this may happen on a timeout on the "V
 
 > INFO: remember to select the "fetch remote ressources" cell, at it is requested for remediation part.
 
-### 2. Trying to harden the target manualy
+### 2. Trying to harden the target manualy
 
 Based on the results, try to harden the target. Missing packages have to be installed, missing configuration entries have to be upgraded/completed.
 
