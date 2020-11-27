@@ -71,7 +71,6 @@ There is three types of remediation:
 
    * bash remediation, based on basic bash scripting
    * Ansible remediation, based on ansible playbook
-   * anaconda remediation, based on anaconda
 
 Let's try bash-based remediation.
 
