@@ -46,6 +46,16 @@ Run the profile compliance test by clicking on "SCAN".
 
 The results appears on the main window.
 
+
+Example with remote CentOS8/Profile PCI_DSS.
+If the report doesn't terminate properly, this may happen on a timeout on the "Verify and Correct File Permissions with RPM". This may happen if the target virtual machine is not powerful enough and generate a timeout for the probe. In this case:
+
+   * increase the target power
+   * create a custom profile from the PCI_DSS one (top right button "Customize"), and select the above rule and other RPM-based software hashes in the rules list and save the newly created profile with another name.
+
+
+> INFO: remember to select the "fetch remote ressources" cell, at it is requested for remediation part.
+
 ### 2. Trying to harden the target manualy
 
 Based on the results, try to harden the target. Missing packages have to be installed, missing configuration entries have to be upgraded/completed.
@@ -63,8 +73,22 @@ There is three types of remediation:
    * Ansible remediation, based on ansible playbook
    * anaconda remediation, based on anaconda
 
-#### Remediation using bash scripting
+Let's try bash-based remediation.
 
+First, clear any previous report results, then:
 
+   * select "fetch remote ressources"
+   * select "bash remediation" in the bottom left remediation mode, but without selecting auto remediation
+   * run again the report
 
-#### Remediation using Ansible playbook
+When the security analysis is finished:
+
+   * save the report in HTML & XCCDF (XML) format in the backed results directory
+   * save the bash remediation script in the backed results directory
+
+When you take a look to the remediation script, all failed rules for which a remediation script exists are concatenated into a single remediation script.
+
+Copy this script to the target host and execute it with administrative rights.
+
+When finished, rerun the analysis and compare with the previous results.
+
