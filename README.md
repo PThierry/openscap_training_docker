@@ -10,11 +10,11 @@ You are free to handle the Docker container network depending on your needs, On 
 
 A typical run of this container is the following:
 
->  docker run --volume="$HOME/.Xauthority:/home/oscap/.Xauthority:rw" --env="DISPLAY" --net=host -it h2lab/scap_training
+>  docker run --volume="$HOME/.Xauthority:/home/oscap/.Xauthority:rw" --env="DISPLAY" --net=host -it philou8237/openscap_training
 
 In order to get back reports results and other content to the host, it is possible to add another previously created shared directory:
 
->  docker run --volume="$HOME/.Xauthority:/home/oscap/.Xauthority:rw" --volume="$PWD/results:/home/oscap/results:rw" --env="DISPLAY" --net=host -it h2lab/scap_training
+>  docker run --volume="$HOME/.Xauthority:/home/oscap/.Xauthority:rw" --volume="$PWD/results:/home/oscap/results:rw" --env="DISPLAY" --net=host -it philou8237/openscap_training
 
 
 ## Training
